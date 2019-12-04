@@ -24,12 +24,8 @@ import frc.robot.subsystems.*;
  */
 public class Robot extends TimedRobot
 {
-  // all 5 subsystems
-  private static DriveBase drive;
-  private static WheelInOut flywheel;
-  private static Tilt tilt;
-  private static Elevator elevator;
-  private static Climb climb;
+  // Subsystems
+
   
   // operator interface
   private static OI oi;
@@ -50,84 +46,10 @@ public class Robot extends TimedRobot
 
     if (map.getSys("drive") != 0)
       drive = new DriveBase();
-    if (map.getSys("wheelio") != 0)
-      flywheel = new WheelInOut();
-    if (map.getSys("tilt") != 0)
-      tilt = new Tilt();
-    if (map.getSys("elevator") != 0)
-      elevator = new Elevator();
-    if (map.getSys("climb") != 0)
-      climb = new Climb();
-    // must be at end (after subsystems and RobotMap)
-    oi = new OI();
   }
 
-  public void initCamera()
-  {
-    // start running camera from roboRIO
-    UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-    camera.setBrightness(8);
-    // camera.setExposureManual(5);
-    camera.setExposureAuto();
-  }
-  /**
-   * This method gets the Tilt subsystem
-   * @return tilt
-   */
-  public static Tilt getTilt()
-  {
-    return tilt;
-  }
 
-  /**
-   * a simple getter method for the DriveBase subsystem
-   * @return drive base
-   */
-  public static DriveBase getDrive()
-  {
-    return drive;
-  }
-   /**
-   * a simple getter method for the Flywheel subsystem
-   * @return flywheel
-   */
-   public static WheelInOut getFlywheel()
-   {
-      return flywheel;
-   }
-   
-   /**
-    * a simple getter method for the Elevator subsystem 
-    * @return Elevator
-    */
-  public static Elevator getElevator() {
-    return elevator;
-  }
-  /**
-   * a simple getter method for the Climb subsystem 
-   * @return Climb
-   */
-  public static Climb getClimb() {
-    return climb;
-  }
-  /**
-  
-   * a simple getter method for the operator interface (for controls)
-   * @return drive base
-   */
-  public static OI getOI()
-  {
-    return oi;
-  }
-  /**
 
-   * a simple getter method for the robot map
-   * @return drive base
-   */
-  public static RobotMap getMap()
-  {
-    return map;
-  }
   /**
    * This function is called every robot packet, no matter the mode. Use
    * this for items like diagnostics that you want ran during disabled,
